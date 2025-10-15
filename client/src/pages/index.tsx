@@ -65,7 +65,7 @@ export default function Dashboard() {
         </div>
 
         {/* Summary Cards - First Row (4 cards) */}
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-3 sm:gap-4 grid-cols-2 md:grid-cols-2 lg:grid-cols-4">
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm text-blue-900">Total Sales</CardTitle>
@@ -135,7 +135,7 @@ export default function Dashboard() {
         </div>
 
         {/* Additional Summary Cards - Second Row (4 cards) */}
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-3 sm:gap-4 grid-cols-2 md:grid-cols-2 lg:grid-cols-4 mobile-stack">
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm text-blue-900">Total Profit</CardTitle>
@@ -200,21 +200,21 @@ export default function Dashboard() {
         {/* Charts */}
         <div className="grid gap-6 md:grid-cols-2">
           {/* Cash Flow Trend */}
-          <Card className="relative">
+          <Card className="relative col-span-2 md:col-span-1">
             <CardHeader className="flex flex-row items-center justify-between">
-              <CardTitle>Cash Flow Trend</CardTitle>
+              <CardTitle className="mobile-text-sm">Cash Flow Trend</CardTitle>
               <Dialog>
                 <DialogTrigger asChild>
-                  <Button variant="ghost" size="sm" className="absolute top-4 right-4 h-8 w-8 p-0">
+                  <Button variant="ghost" size="sm" className="absolute top-4 right-4 h-8 w-8 p-0 mobile-hidden">
                     <Expand className="h-4 w-4" />
                   </Button>
                 </DialogTrigger>
-                <DialogContent className="max-w-6xl h-5/6">
+                <DialogContent className="max-w-6xl h-5/6 mobile-full-width">
                   <DialogHeader>
                     <DialogTitle>Cash Flow Trend - Full View</DialogTitle>
                   </DialogHeader>
-                  <div className="flex-1">
-                    <ResponsiveContainer width="100%" height={600}>
+                  <div className="flex-1 mobile-full-width">
+                    <ResponsiveContainer width="100%" height={400} className="mobile-full-width">
                       <LineChart data={charts.cashflowTrend}>
                         <CartesianGrid strokeDasharray="3 3" />
                         <XAxis dataKey="month" />
@@ -230,14 +230,14 @@ export default function Dashboard() {
                 </DialogContent>
               </Dialog>
             </CardHeader>
-            <CardContent>
-              <ResponsiveContainer width="100%" height={300}>
+            <CardContent className="mobile-compact">
+              <ResponsiveContainer width="100%" height={250} className="chart-container-mobile">
                 <LineChart data={charts.cashflowTrend}>
                   <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="month" />
-                  <YAxis />
+                  <XAxis dataKey="month" className="mobile-text-sm" />
+                  <YAxis className="mobile-text-sm" />
                   <Tooltip formatter={(value) => formatAmountWithCustomFont(Number(value))} />
-                  <Legend />
+                  <Legend wrapperStyle={{ fontSize: '12px' }} />
                   <Line type="monotone" dataKey="inflows" stroke="#00C49F" strokeWidth={2} name="Inflows" />
                   <Line type="monotone" dataKey="outflows" stroke="#FF8042" strokeWidth={2} name="Outflows" />
                   <Line type="monotone" dataKey="netCashflow" stroke="#0088FE" strokeWidth={2} name="Net Cash Flow" />

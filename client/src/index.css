@@ -152,6 +152,52 @@
   }
 }
 
+/* Enhanced Mobile Responsiveness */
+@media (max-width: 768px) {
+  .mobile-full-width {
+    @apply w-full min-w-full;
+  }
+
+  .mobile-text-sm {
+    @apply text-xs;
+  }
+
+  .mobile-compact {
+    @apply p-2 space-y-2;
+  }
+
+  /* Hide complex content on mobile */
+  .mobile-hidden {
+    @apply hidden;
+  }
+
+  /* Stack cards vertically on mobile */
+  .mobile-stack {
+    @apply flex flex-col space-y-4;
+  }
+
+  /* Make chart containers smaller on mobile */
+  .chart-container-mobile {
+    height: 200px !important;
+  }
+
+  /* Better touch targets */
+  .mobile-touch {
+    @apply min-h-[44px] min-w-[44px];
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  .xs-text {
+    @apply text-xs leading-tight;
+  }
+
+  .xs-compact {
+    @apply p-1 space-y-1;
+  }
+}
+
 /* Saudi Riyal Symbol Styling */
 .sar-symbol {
   font-family: 'SaudiRiyalSymbol', Arial, sans-serif;

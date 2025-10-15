@@ -39,7 +39,7 @@ export function Layout({ children }: { children: ReactNode }) {
     <div className="flex min-h-screen bg-background">
       {/* Mobile sidebar overlay */}
       {sidebarOpen && (
-        <div 
+        <div
           className="fixed inset-0 z-40 bg-black/50 lg:hidden"
           onClick={() => setSidebarOpen(false)}
         />
@@ -47,25 +47,25 @@ export function Layout({ children }: { children: ReactNode }) {
 
       {/* Sidebar */}
       <div className={cn(
-        "fixed inset-y-0 left-0 z-50 w-64 bg-background border-r transform transition-transform duration-200 ease-in-out lg:translate-x-0 lg:static lg:inset-0",
+        "fixed inset-y-0 left-0 z-50 w-72 sm:w-64 bg-background border-r transform transition-transform duration-200 ease-in-out lg:translate-x-0 lg:static lg:inset-0",
         sidebarOpen ? "translate-x-0" : "-translate-x-full"
       )}>
         <div className="flex h-full flex-col">
           {/* Logo */}
-          <div className="flex h-16 items-center justify-between px-6 border-b">
+          <div className="flex h-16 items-center justify-between px-4 sm:px-6 border-b">
             <button
               onClick={() => navigate("/")}
-              className="flex items-center space-x-2"
+              className="flex items-center space-x-2 mobile-touch"
             >
-              <BarChart3 className="size-6 text-primary" />
-              <span className="text-lg font-semibold text-foreground tracking-tight">
-                Finance Tracker
+              <BarChart3 className="size-5 sm:size-6 text-primary" />
+              <span className="text-base sm:text-lg font-semibold text-foreground tracking-tight xs-text">
+                Literature Tracker
               </span>
             </button>
             <Button
               variant="ghost"
               size="icon"
-              className="lg:hidden"
+              className="lg:hidden mobile-touch"
               onClick={() => setSidebarOpen(false)}
             >
               <X className="size-4" />
@@ -73,7 +73,7 @@ export function Layout({ children }: { children: ReactNode }) {
           </div>
 
           {/* Navigation */}
-          <nav className="flex-1 px-4 py-6 space-y-1">
+          <nav className="flex-1 px-3 sm:px-4 py-4 sm:py-6 space-y-1 mobile-compact">
             {navigation
               .filter(item => item.name !== "Test Suite") // Hide Test Suite for production
               .map((item) => {
@@ -86,14 +86,14 @@ export function Layout({ children }: { children: ReactNode }) {
                       setSidebarOpen(false);
                     }}
                     className={cn(
-                      "w-full flex items-center px-3 py-2 text-sm font-medium rounded-md transition-colors",
+                      "w-full flex items-center px-3 py-2 text-sm font-medium rounded-md transition-colors mobile-touch xs-compact",
                       isActive
                         ? "bg-primary text-primary-foreground"
                         : "text-muted-foreground hover:text-foreground hover:bg-muted"
                     )}
                   >
-                    <item.icon className="mr-3 size-4" />
-                    {item.name}
+                    <item.icon className="mr-3 size-4 flex-shrink-0" />
+                    <span className="truncate">{item.name}</span>
                   </button>
                 );
               })}
@@ -104,25 +104,25 @@ export function Layout({ children }: { children: ReactNode }) {
       {/* Main content */}
       <div className="flex-1 lg:pl-0">
         {/* Top bar */}
-        <header className="sticky top-0 z-30 flex h-16 items-center justify-between border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 px-6">
+        <header className="sticky top-0 z-30 flex h-14 sm:h-16 items-center justify-between border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 px-4 sm:px-6">
           <Button
             variant="ghost"
             size="icon"
-            className="lg:hidden"
+            className="lg:hidden mobile-touch"
             onClick={() => setSidebarOpen(true)}
           >
             <Menu className="size-4" />
           </Button>
-          
-          <div className="flex items-center space-x-4 ml-auto">
-            <p className="text-sm font-bold italic text-blue-900">
+
+          <div className="flex items-center space-x-2 sm:space-x-4 ml-auto">
+            <p className="text-xs sm:text-sm font-bold italic text-blue-900 truncate">
               Created by: Shaharyar Khalid
             </p>
           </div>
         </header>
 
         {/* Page content */}
-        <main className="flex-1 p-6">
+        <main className="flex-1 p-4 sm:p-6 overflow-x-hidden">
           {children}
         </main>
       </div>
