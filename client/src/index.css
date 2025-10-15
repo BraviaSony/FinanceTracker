@@ -168,7 +168,7 @@
 
   /* Hide complex content on mobile */
   .mobile-hidden {
-    @apply hidden;
+    @apply hidden sm:block;
   }
 
   /* Stack cards vertically on mobile */
@@ -176,14 +176,27 @@
     @apply flex flex-col space-y-4;
   }
 
-  /* Make chart containers smaller on mobile */
-  .chart-container-mobile {
+  /* Make chart containers responsive on mobile */
+  .chart-responsive {
     height: 200px !important;
   }
 
   /* Better touch targets */
   .mobile-touch {
     @apply min-h-[44px] min-w-[44px];
+  }
+
+  /* Prevent chart card overlap */
+  .chart-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .chart-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 }
 

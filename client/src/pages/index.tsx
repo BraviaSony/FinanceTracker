@@ -198,9 +198,9 @@ export default function Dashboard() {
         </div>
 
         {/* Charts */}
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="chart-grid gap-4 sm:gap-6">
           {/* Cash Flow Trend */}
-          <Card className="relative col-span-2 md:col-span-1">
+          <Card className="relative">
             <CardHeader className="flex flex-row items-center justify-between">
               <CardTitle className="mobile-text-sm">Cash Flow Trend</CardTitle>
               <Dialog>
@@ -231,7 +231,7 @@ export default function Dashboard() {
               </Dialog>
             </CardHeader>
             <CardContent className="mobile-compact">
-              <ResponsiveContainer width="100%" height={250} className="chart-container-mobile">
+              <ResponsiveContainer width="100%" height={200} className="chart-responsive">
                 <LineChart data={charts.cashflowTrend}>
                   <CartesianGrid strokeDasharray="3 3" />
                   <XAxis dataKey="month" className="mobile-text-sm" />
