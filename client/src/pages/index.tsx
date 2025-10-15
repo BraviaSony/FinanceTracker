@@ -198,7 +198,7 @@ export default function Dashboard() {
         </div>
 
         {/* Charts */}
-        <div className="chart-grid gap-4 sm:gap-6">
+        <div className="grid gap-4 sm:gap-6 grid-cols-1 md:grid-cols-2">
           {/* Cash Flow Trend */}
           <Card className="relative">
             <CardHeader className="flex flex-row items-center justify-between">
