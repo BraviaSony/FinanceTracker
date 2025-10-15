@@ -1,4 +1,4 @@
-# System Patterns: Finance Tracker V2
+# System Patterns: Finance Tracker V3
 
 ## Core Architecture Patterns
 

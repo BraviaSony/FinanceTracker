@@ -1,4 +1,4 @@
-# Technical Context: Finance Tracker V2
+# Technical Context: Finance Tracker V3
 
 ## Technology Stack Overview
 
@@ -159,6 +159,8 @@ interface Money {
 - **Bundle Optimization**: Tree shaking, minification, compression
 - **Memoization**: React.memo, useMemo, useCallback
 - **Virtual Scrolling**: For large datasets
+- **Mobile Responsiveness**: Comprehensive mobile-first design with adaptive layouts
+- **Touch Targets**: 44px minimum touch targets for accessibility compliance
 
 #### **Backend Optimizations**
 - **Query Optimization**: Indexed fields, selective querying

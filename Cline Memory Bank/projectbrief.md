@@ -1,4 +1,4 @@
-# Project Brief: Finance Tracker V2
+# Project Brief: Finance Tracker V3
 
 ## Executive Summary
 Finance Tracker V2 is a comprehensive financial management application designed for small businesses (2-10 employees) to track, analyze, and manage their financial operations in real-time. The system provides single-currency (PKR) support, interactive analytics dashboards, and seamless management of 9 integrated financial modules.
